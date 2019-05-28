@@ -1,0 +1,13 @@
+/**index.wxss**/
+.container{padding-top: 40px;font-size: 11px;color: rgb(134, 135, 138)}
+.container .search_wrap{position: fixed;top: 0;width: 100%;z-index: 10}
+.container .swiper_wrap .slide-image{width: 100%}
+.container .nav_wrap{text-align: center;padding: 15px 0px;}
+.container .nav_wrap .nav_icon{font-size: 30px;color: #dd5415}
+.container .commit_wrap{background: #f9f9f9}
+.container .commit_wrap .hot_goods{text-align: center;line-height: 80px}
+.container .commit_wrap .goodList_wrap .good_list{padding: 8px}
+.container .commit_wrap .goodList_wrap .good_list .good_img{width: 100%;border-top-left-radius: 5px;border-top-right-radius: 5px}
+.container .commit_wrap .goodList_wrap .good_list .good_all{background: white;padding: 2px}
+.container .commit_wrap .goodList_wrap .good_list .good_all .price_wrap .new_price{color: red;line-height: 24px}
+.container .commit_wrap .goodList_wrap .good_list .good_all .price_wrap .old_price{color:grey;line-height: 24px;text-decoration: line-through;float: right}

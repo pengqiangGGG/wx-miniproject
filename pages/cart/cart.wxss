@@ -1,0 +1,25 @@
+/* pages/cart/cart.wxss */
+page{height: 100%;background: #f8f8f8;}
+.no_cart{text-align: center;font-size:100rpx;color: #cccccc;margin-top:200rpx;}
+.empty_cart{font-size:30rpx;margin-top: 20rpx}
+.shopping{width: 240rpx;text-align: center;background: #f55003;margin: 45rpx auto;border-radius: 8rpx;font-size: 12px;color: white;padding: 5px 0}
+.isGoods {width: 100%;display: flex;flex-direction: row;padding: 10rpx 5rpx;background:white;border-bottom: 1px solid #f8f8f8}
+.isGoods .cart_pic{background: white;border: 1px solid #f8f8f8;}
+.isGoods .cart_dec{padding-left: 10px;}
+.isGoods .cart_dec .title{font-size: 30rpx;font-weight: bolder}
+.isGoods .cart_dec .sku{font-size: 24rpx;color: #8d8c8c}
+.isGoods .cart_pic image{width: 160rpx}
+.isGoods .cart_dec .price{margin-top: 30rpx}
+.isGoods .cart_dec .price .new{font-size: 30rpx;color: red}
+.isGoods .cart_dec .price .old{font-size: 24rpx;color:#cccccc;text-decoration: line-through;margin-left: 15rpx}
+.isGoods .num{padding-top:40rpx;text-align: center;flex: 1}
+.isGoods .num .btn{margin-top: 60rpx}
+.hasCart{padding-bottom: 120rpx}
+.no_more{margin-top: 90rpx;text-align: center;font-size: 24rpx;color: #cccccc}
+.cart_top{height: 78rpx;line-height: 78rpx;background: #fffcce;text-align: center;color:#7a7979;font-size: 24rpx}
+.choose_check{height: 160rpx;line-height: 160rpx;padding: 0px 8rpx;}
+.cart_bottom{height: 90rpx;line-height: 90rpx;font-size: 26rpx;background-color: white;position: fixed;bottom: 0px;width: 100%;left:0;z-index: 99}
+.cart_bottom .cart_edit{text-align: right;padding-right: 15rpx}
+.cart_bottom .order{color:white;background: #fa3301;text-align: center}
+.cart_bottom .del{color:white;background: #bbb9b9;text-align: center}
+.cart_isAll{padding-left: 13rpx}

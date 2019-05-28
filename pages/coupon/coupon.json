@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-field": "../../lib/field/index"
+  },
+  "navigationBarTitleText": "领券中心"
+}

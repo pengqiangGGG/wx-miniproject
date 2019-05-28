@@ -1,0 +1,12 @@
+/* pages/detail-order/detail-order.wxss */
+.order_all{padding: 10px 10px 5px 5px;font-size: 12px;background: white}
+.empty{height: 8px;background: #f8f6f6}
+.line{height: 1px;background: #f8f6f6}
+.order_all .order_num{font-size: 12px;border-bottom: 1px solid #f8f6f6;line-height: 20px}
+.order_all .order_stu{color: red;text-align: right;font-size: 11px;border-bottom: 1px solid #f8f6f6;line-height: 20px}
+.order_all .goodsDetail{display: flex;flex-direction: row;padding: 5px 5px 0px 0px}
+.order_all .goodsDetail .goods_img {padding: 5px;}
+.order_all .goodsDetail .goods_img image{width: 55px;height: 55px}
+.order_all .goodsDetail .goods_text{font-size: 11px;padding-left:15px;padding-top: 8px}
+.order_all .goodsDetail .goods_text .goods_sku{color: grey;font-size: 10px}
+.order_all .goodsDetail .all_price{color: red;flex: 1;text-align: right;padding-right: 15px;line-height: 20px;padding-top: 10px}

@@ -1,0 +1,6 @@
+/* pages/choose-coupon/choose-coupon.wxss */
+@import '../my-coupon/my-coupon.wxss';
+page{background:white }
+.chooseCoupon{font-size: 12px}
+.noChoose{height: 30px;width: 90%;margin: 15px auto;border: 1px solid rgb(235, 232, 232);line-height: 30px;text-align: center;background: #f8f6f6}
+.choosed{position: absolute;width: 20px;height: 20px;background: red;top:0;left: 0;border-bottom-right-radius:100% }

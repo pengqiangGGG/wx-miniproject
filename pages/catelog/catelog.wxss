@@ -1,0 +1,10 @@
+/* pages/catelog/catelog.wxss */
+.goods_show{background-color: #f5f1f1}
+.cate_goods{padding:10px;background: #f4f4f4;border:1px solid #f9f9f9}
+.cate_goods{background:white;font-size: 28rpx}
+.cate_name{text-align: center;line-height: 180rpx;height: 180rpx;font-size: 29rpx;color: #cccccc}
+.noGood{font-size:12px;height: 120rpx;line-height: 120rpx;text-align: center;}
+.cate_goods .cate_img image{width: 100%;border-top-left-radius: 6rpx;border-top-right-radius: 6rpx;}
+.cate_wrap .cate_price{display: flex;flex-direction:row;width: 100%;}
+.cate_wrap .cate_price .cate_new{color: red;flex: 1;}
+.cate_wrap .cate_price .cate_old{color: #cccccc;flex: 1;text-decoration: line-through;text-align: right}

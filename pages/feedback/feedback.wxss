@@ -1,0 +1,13 @@
+/* pages/feedback/feedback.wxss */
+page{height: 100%;background: #f8f6f6}
+.chooseType{padding:10px 0px}
+
+.section{width: 100%;background: white;position: relative;padding-top: 5px}
+.section .areaText{width: 95%;font-size: 11px;line-height: 18px;margin: 0 auto}
+.section .count{position: absolute;right: 5px;bottom: 5px;color: grey;font-size: 11px}
+.feedPhone{line-height:28px;text-indent: 10px;font-size: 11px;color: grey;height: 28px}
+.feedInput{background-color: white;padding: 10px 30px 10px 10px;font-size: 12px;position: relative}
+.feedIcon{position: absolute;font-size: 14px;right:14px;top:14px;z-index: 1}
+.submit{padding-top:80px;}
+.submit .btn{width: 85%;margin: 0 auto;height: 32px;line-height: 32px;font-size: 12px;text-align: center;color: white;border-radius: 8px;background: #f4bf6e}
+

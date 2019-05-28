@@ -1,0 +1,5 @@
+/* pages/address/address.wxss */
+.saveWrap{padding: 30px 15px;}
+.saveWrap .save{line-height: 34px;text-align: center;background: green;color: white;font-size: 12px;border-radius: 4px;margin-bottom: 10px}
+.saveWrap .delete{line-height: 34px;text-align: center;background: red;color: white;font-size: 12px;border-radius: 4px}
+.dailog{background: rgba(0, 0, 0, 0.8)}

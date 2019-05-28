@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/cart/cart",
+    "pages/category/category",
+    "pages/good-info/good-info",
+    "pages/catelog/catelog",
+    "pages/login/login",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/list-address/list-address",
+    "pages/list-order/list-order",
+    "pages/detail-order/detail-order",
+    "pages/collect/collect",
+    "pages/about/about",
+    "pages/feedback/feedback",
+    "pages/rating/rating",
+    "pages/coupon/coupon",
+    "pages/my-coupon/my-coupon",
+    "pages/choose-coupon/choose-coupon",
+    "pages/search/search",
+    "pages/signed/signed"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "糖糖屋",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#de5145",
+    "backgroundColor": "#f9f9f9",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/nav/home-off.png",
+        "selectedIconPath": "images/nav/home-on.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "images/nav/search-off.png",
+        "selectedIconPath": "images/nav/search-on.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/nav/cart-off.png",
+        "selectedIconPath": "images/nav/cart-on.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/nav/my-off.png",
+        "selectedIconPath": "images/nav/my-on.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "./lib/button/index",
+    "van-icon": "./lib/icon/index",
+    "van-row": "./lib/row/index",
+    "van-col": "./lib/col/index",
+    "van-cell": "./lib/cell/index",
+    "van-cell-group": "./lib/cell-group/index",
+    "van-popup": "./lib/popup/index",
+    "van-stepper": "./lib/stepper/index",
+    "van-toast": "./lib/toast/index"
+  }
+}

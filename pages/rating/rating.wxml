@@ -1,0 +1,122 @@
+<!-- pages/rating/rating.wxml -->
+<form class='rateWrap' bindsubmit="submitReputation">
+    <view class='order_all'>
+        <view wx:for="{{goods}}" wx:for-item="goods" wx:key="{{goods.id}}">
+            <view class='goodsDetail'>
+                <view class='goods_img'>
+                    <image src="{{goods.pic}}"></image>
+                </view>
+                <radio-group name="goodReputation{{index}}" bindchange="radioChange">
+                    <label class="radio {{item.checked ? 'active' : ''}}" wx:for="{{rateList}}" wx:key="{{index}}">
+                        <view class="radio-icon">
+                            <van-icon name="flower-o" size='28px' class='flower'></van-icon>
+                        </view>
+                        <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+                    </label>
+                </radio-group>
+            </view>
+            <view class="section">
+                <input name="orderGoodsId{{index}}" value="{{goods.id}}" style="display:none;"/>
+                <textarea name="goodReputationRemark{{index}}" placeholder="对我们网站、商品、服务，你还有什么建议吗？你还希望在小店上买到什么？请告诉我们..." class='areaText' placeholder-style="color:grey;" maxlength="200" bindinput="changeValue"/>
+                <view class='count'>
+                  {{num+'/200'}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='shopRate'>
+            <view class='shopScore'>
+                <view class='shopIcon'>
+                    <van-icon name="shop-o" size='16px'/>
+                </view>
+                <text class='shopTitle'>店铺评分</text>
+            </view>
+            <view class='shopScore'>
+                <view class='dec'>
+                    描述相符
+                </view>
+                <view class='rate_dec'>
+                    <van-rate value="{{ dec_rate }}" bind:change="decChange" size="{{ 16 }}" color="#f44"
+  void-color="#eee"/>
+                </view>
+            </view>
+            <view class='shopScore'>
+                <view class='dec'>
+                    物流服务
+                </view>
+                <view class='rate_dec'>
+                    <van-rate value="{{ send_rate }}" bind:change="sendChange" size="{{ 16 }}" color="#f44"
+  void-color="#eee"/>
+                </view>
+            </view>
+            <view class='shopScore'>
+                <view class='dec'>
+                    服务态度
+                </view>
+                <view class='rate_dec'>
+                    <van-rate value="{{ service_rate }}" bind:change="serviceChange" size="{{ 16 }}" color="#f44"
+  void-color="#eee"/>
+                </view>
+            </view>
+    </view>
+    <view>
+        <button class='submit' formType="submit">提交</button>
+    </view>
+    <van-toast id="van-toast" />
+</form>
+
+<!-- <form bindsubmit="submitReputation">
+      <block wx:for="{{goods}}" wx:key="{{index}}">
+        <view class="a-goods">
+          <view class="img-box">
+            <image src="{{item.pic}}" class="img" />
+          </view>
+          <view class="text-box">
+            <view class="arow arow01">
+              <view class="goods-name">{{item.goodsName}}</view>
+              <view class="goods-price">¥ {{item.amount}}</view>
+            </view>
+            <view class="arow">
+              <view class="goods-label">{{item.property}}</view>
+              <view class="goods-num">x {{item.number}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="btn-row">
+
+          <view class="section section_gap">
+            <view style="margin-top:35rpx;margin-bottom:35rpx;">评价：</view>
+            <radio-group name="goodReputation{{index}}">
+              <label style="margin-right:35rpx;">
+                <radio value="2" checked/>好评</label>
+              <label style="margin-right:35rpx;">
+                <radio value="1" />中评</label>
+              <label style="margin-right:35rpx;">
+                <radio value="0" />差评</label>
+            </radio-group>
+          </view>
+          <view class="row-box" style="margin-top:35rpx">
+            <view class="row-label">文字描述</view>
+            <input name="orderGoodsId{{index}}" value="{{item.id}}" style="display:none;" />
+            <textarea name="goodReputationRemark{{index}}" style="margin-top:35rpx;width:100%;" value="非常愉快的一次购物！" />
+          </view>
+        </view>
+      </block>
+      <view class="btn-row" >
+        <button class="confirm-btn" formType="submit">提交评价</button>
+      </view>
+    </form> -->
+
+<!-- 
+    <view class='goodRate {{ value == "1" ? "red" : "" }}' catchtap='changColor' data-id='1'>
+                    <van-icon name="flower-o" size="26px" class='rate_icon'></van-icon>
+                    <text class='rateText'>好评</text>
+                </view>
+                <view class='goodRate {{ value == "2" ? "red" : "" }}' catchtap='changColor' data-id='2'>
+                    <van-icon name="flower-o" size="26px" class='rate_icon'></van-icon>
+                    <text class='rateText'>中评</text>
+                </view>
+                <view class='goodRate {{ value == "3" ? "red" : "" }}' catchtap='changColor' data-id='3'>
+                    <van-icon name="flower-o" size="26px" class='rate_icon'></van-icon>
+                    <text class='rateText'>差评</text>
+                </view> -->

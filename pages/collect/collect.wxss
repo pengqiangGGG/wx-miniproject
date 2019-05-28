@@ -1,0 +1,7 @@
+/* pages/collect/collect.wxss */
+page{background: #f8f6f6;height: 100%}
+.goods{padding:5px 10px;font-size: 12px;border-bottom: 1px solid #f8f6f6}
+.goods image{width: 55px;height: 55px;vertical-align: middle}
+.goods .goods_text{margin-left: 15px}
+.empty{height: 10px;background: #f8f6f6}
+.noList{margin-top: 75px;text-align: center;color: grey;font-size: 12px}

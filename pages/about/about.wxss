@@ -1,0 +1,2 @@
+/* pages/about/about.wxss */
+.about{font-size: 12px;color: grey}

@@ -1,0 +1,30 @@
+<!--pages/list-address/list-address.wxml-->
+<view class='addressListWrap'>
+    <view class='empty'></view>
+    <view wx:for="{{list}}" wx:key="{{item.id}}" class='address'>  
+        <van-row>
+            <van-col span="2">
+              <view class="left_icon">
+                  <van-icon name="success"  wx:if="{{item.isDefault}}"></van-icon>
+              </view>             
+            </van-col>
+            <van-col span="19" catchtap="chooseAddress" data-address="{{item}}"> 
+                <view class='name'>
+                    {{item.linkMan+' , '+item.mobile}}
+                </view>
+                <view class='detail'>
+                    {{item.provinceStr+' '+item.cityStr+' '+item.areaStr+' '+item.address}}
+                </view>
+            </van-col>
+            <van-col span="3" catchtap="editAddress" data-id="{{item.id}}">
+                <view class="right_icon">
+                    <van-icon name="edit"></van-icon>
+                </view>  
+            </van-col>
+        </van-row>
+    </view>
+    <view class='newAddress' catchtap='goAddress'>
+        <van-cell title="新增收货地址" icon="add" is-link/>
+    </view>
+    <van-toast id="van-toast" />
+</view>

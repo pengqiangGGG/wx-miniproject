@@ -1,0 +1,125 @@
+<!--pages/mine/mine.wxml-->
+<view class='mineWrap'>
+    <view class='headwrap'>
+        <view class='head_img'>
+            <image src="{{userInfo.avatarUrl}}" class='avatar'></image>
+            <text class='name'>{{userInfo.nick}}</text>
+        </view>
+    </view>
+    <view>
+        <van-cell title="我的订单" is-link  icon="balance-list-o" value="查看全部订单" bind:click="go_order"/>
+        <van-row class="order">
+            <van-col span="6" catchtap='waitPay'>
+                <view  class='order_img'>
+                    <image src="../../images/order/fukuan.png"></image>
+                </view>
+                <view class='order_text'>
+                    待付款
+                </view>
+            </van-col>
+            <van-col span="6" catchtap='waitSend'>
+                <view class='order_img'>
+                    <image src="../../images/order/fahuo.png"></image>
+                </view>
+                <view class='order_text'>
+                    待发货
+                </view>
+            </van-col>
+            <van-col span="6" catchtap='waitGet'>
+                <view class='order_img'>
+                    <image src="../../images/order/shouhuo.png"></image>
+                </view>
+                <view class='order_text'>
+                    待收货
+                </view>
+            </van-col>
+            <van-col span="6" catchtap='waitRate'>
+                <view class='order_img'>
+                    <image src="../../images/order/pingjia.png"></image>
+                </view>
+                <view class='order_text'>
+                    待评价
+                </view>
+            </van-col>
+        </van-row>
+        <view class='empty'></view>
+    </view>
+    <view>
+        <van-cell title="核心服务"  icon="award-o"/>
+        <van-row class="service">
+            <van-col span="6" catchtap="goCoupon">
+                <view  class='order_img'>
+                    <image src="../../images/my-info/myquan.png"></image>
+                </view>
+                <view class='order_text'>
+                    优惠券
+                </view>
+            </van-col>
+            <van-col span="6" catchtap="goCollect">
+                <view class='order_img'>
+                    <image src="../../images/my-info/shoucang.png"></image>
+                </view>
+                <view class='order_text'>
+                    收藏
+                </view>
+            </van-col>
+            <van-col span="6" catchtap="goSigned">
+                <view class='order_img'>
+                    <image src="../../images/my-info/zuji.png"></image>
+                </view>
+                <view class='order_text'>
+                    签到
+                </view>
+            </van-col>
+            <van-col span="6" catchtap="contact">
+                <view class='order_img'>
+                    <image src="../../images/my-info/kefu.png"></image>
+                </view>
+                <view class='order_text'>
+                    联系客服
+                </view>
+            </van-col>
+        </van-row>
+        <view class='empty'></view>
+    </view>
+    <view>
+        <van-cell title="必备工具"  icon="setting-o"/>
+        <van-row class="setting">
+            <van-col span="6" catchtap="setAddress">
+                <view  class='order_img'>
+                    <image src="../../images/my-info/dizhi.png"></image>
+                </view>
+                <view class='order_text'>
+                    地址管理
+                </view>
+            </van-col>
+            <van-col span="6" catchtap='bindUserPhone'>
+                <view class='order_img'>
+                    <image src="../../images/my-info/shezhi.png"></image>
+                </view>
+                <view class='order_text'>
+                    换绑手机
+                </view>
+            </van-col>
+            <van-col span="6" catchtap="goFeed">
+                <view class='order_img'>
+                    <image src="../../images/my-info/info.png"></image>
+                </view>
+                <view class='order_text'>
+                   意见反馈
+                </view>
+            </van-col>
+            <van-col span="6" catchtap="goAbout">
+                <view class='order_img'>
+                    <image src="../../images/my-info/kefu.png"></image>
+                </view>
+                <view class='order_text'>
+                    关于我们
+                </view>
+            </van-col>
+        </van-row>
+        <view class='empty'></view>
+        <van-toast id="van-toast"></van-toast>
+        <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">绑定手机号码</button> -->
+    </view>
+</view>

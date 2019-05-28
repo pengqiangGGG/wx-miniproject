@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-search": "../../lib/search/index"
+  },
+  "navigationBarBackgroundColor": "#de5145",
+  "navigationBarTitleText": "搜索商品"
+}

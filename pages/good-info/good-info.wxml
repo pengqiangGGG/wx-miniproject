@@ -1,0 +1,104 @@
+<!--pages/good-info/good-info.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='goods-wrap'>
+    <!-- 商品轮播-->
+    <view class='swiper_wrap'>
+        <swiper
+          indicator-dots="{{indicatorDots}}"
+          autoplay="{{autoplay}}"
+          interval="{{interval}}"
+          duration="{{duration}}"
+          circular="{{circular}}"
+        >
+            <block wx:for="{{goodsInfo.pics}}" wx:key="item.id">
+                <swiper-item>
+                      <image src="{{item.pic}}" class="slide-image" mode='widthFix' bindtap="previewImage" data-src="item"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+
+<!-- 商品介绍-->
+    <view class='goods_all'>
+        <view class='goods_title'>
+           {{goodsInfo.basicInfo.name}}
+        </view>
+        <view>
+            <text class='goodsInfo_price'>￥{{goodsInfo.basicInfo.minPrice}}</text>
+            <text class='goodsInfo_oldprice'>{{goodsInfo.basicInfo.originalPrice}}</text>
+        </view>
+        <view class='goods_title'>
+            <text class='send_price'>运费：  卖家承担运费</text>
+            <text class='sell_num'>累计销售{{goodsInfo.basicInfo.stores}}笔</text>
+        </view>
+        <view class='goods_share'>
+            <van-icon name="share"></van-icon>
+            <view class='share'>分享</view>
+        </view>       
+    </view>
+    <view class='empty_block'></view>
+    <view class='choose_goodSku'>
+        <view class='choose_color' bindtap='choose_sku'>选择尺码 颜色</view>
+        <view class='choose_icon'>
+            <van-icon name="arrow"></van-icon>
+        </view>
+    </view>
+    <view class='empty_block'></view>
+
+    <!-- 商品详情-->
+    <view>
+        <view>
+            <view class='choose_color'>商品介绍</view>
+        </view>
+        <view class='goodInfo_img' >
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+        
+    </view>
+
+    <!-- 商品规格弹窗-->
+    <van-popup show="{{ show_sku }}" bind:close="onClose" position="bottom">
+        <view class='all_sku'>
+            <image src="{{goodsInfo.basicInfo.pic}}" mode='widthFix' class='sku_img'></image>
+            <view class='sku_text'>
+                <view class='sku_title'>{{goodsInfo.basicInfo.name}}</view>
+                <view class='sku_price'>￥{{price}}</view>
+            </view> 
+            <view class="spec-item" wx:for="{{goodsInfo.properties}}" wx:key="{{item.id}}">
+                <view class="name">{{item.name}}:</view>
+                <view class="values">
+                    <view class="value {{vitem.remark=='true' ? 'selected' : ''}}" bindtap="chooseValueOne" wx:for="{{item.childsCurGoods}}" wx:for-item="vitem" wx:key="{{vitem.id}}" data-value="{{vitem.name}}" data-name="{{item.name}}" data-id='{{vitem.id}}' data-pid='{{item.id}}'>
+                          {{vitem.name}}
+                    </view>
+                </view>
+            </view>
+            <view class='choose_all'>               
+                  <view class='choose_num'>选择数量:</view>
+                  <view class='goods_step'>
+                      <van-stepper value="{{ 1 }}" bind:change="onChange" />    
+                  </view>
+                  <view class='clear'></view>                                                 
+            </view>
+            <view class='add_wrap'>
+                <view class='add_cart' bindtap='addCart'>
+                    加入购物车
+                </view>
+            </view> 
+        </view>   
+    </van-popup>
+   
+<!-- 商品固定底部导航-->
+    <view class='goods_nav_wrap'>
+        <view class='goods_nav'>
+            <view class='nav_one nav_all' catchtap='collect'>
+                <van-icon name="like" color='{{collected ? "red" : " "}}'></van-icon>
+            </view>
+            <view class='nav_two nav_all' catchtap='go_cart'>
+                <van-icon name="cart-o" info="{{cart_num}}"></van-icon>
+            </view>
+            <view class='nav_three nav_all' bindtap='choose_sku'>加入购物车</view>
+            <view class='nav_four nav_all'>立即购买</view>
+        </view>
+    </view>
+    <van-toast id="van-toast" />
+</view>

@@ -1,0 +1,11 @@
+/* pages/my-coupon/my-coupon.wxss */
+@import '../coupon/coupon.wxss';
+.useDate{position: absolute;top: 42px;left:8%;font-size: 9px;color: white }
+.isUse .couponItem .text{background: #dddbdb;color: white}
+.couponItem .text .left_text{color: white;left: 8%;top:6px}
+.couponItem .text .left_text .price{color: white;text-align: left}
+.couponItem .text .left_text .allPlace{font-size: 10px;line-height: 8px;text-indent: 2px}
+.couponItem .text .right_text{color: white;top: 9px;font-size: 13;left:35%}
+.couponItem .text .right_text .limit{font-size: 10px;line-height: 18px;}
+
+.isUse .couponItem .btn{background-color: rgb(182, 182, 182);color: white}

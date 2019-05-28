@@ -1,0 +1,32 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='feedWrap'>
+    <view catchtap='chooseType' class='chooseType'>
+        <van-cell title="{{title}}" is-link arrow-direction="down"/>
+    </view>
+
+    <view class="section">
+          <textarea placeholder="对我们网站、商品、服务，你还有什么建议吗？你还希望在小店上买到什么？请告诉我们..." class='areaText'
+          placeholder-style="color:grey;" maxlength="200" bindinput="changeValue"/>
+          <view class='count'>
+             {{num+'/200'}}
+          </view>
+    </view>
+
+    <view>
+        <view class='feedPhone'>手机号码</view>
+        <view class='feedInput'>
+            <input class="mobile" maxlength="20" placeholder="方便我们与你联系" type='number' value="{{inputTxt}}" confirm-type ="send" bindinput="keydown"></input>
+            <view class='feedIcon' wx:if="{{isClear}}">
+                <van-icon name="clear" color='grey' bind:click='clearPhone'></van-icon>
+            </view>
+        </view>
+        <view class='submit'>
+            <view class='btn' catchtap='submit'>提交</view>
+        </view>
+    </view>
+    
+    <van-popup show="{{ show }}" position="bottom">
+        <van-picker show-toolbar columns="{{ columns }}" bind:cancel="onCancel" bind:confirm="onConfirm"/>
+    </van-popup>
+    <van-toast id="van-toast"></van-toast>
+</view>

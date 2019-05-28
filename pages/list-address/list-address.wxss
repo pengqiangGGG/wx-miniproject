@@ -1,0 +1,7 @@
+/* pages/list-address/list-address.wxss */
+.name{height:25px;line-height: 30px;font-size: 12px;text-indent: 8px}
+.detail{height:25px;line-height: 20px;font-size: 11px;color: #cccccc;text-indent: 8px;border-bottom: 1px solid #f8f8f8;}
+.empty{height: 10px;background: #f8f6f6}
+.left_icon{height: 50px;line-height: 50px;text-align: center;color: red}
+.right_icon{height: 50px;line-height: 50px;text-align: center;border-bottom: 1px solid #f8f8f8;}
+.newAddress{position: fixed;bottom: 0;width: 100%;border-top: 2px solid #f8f6f6}

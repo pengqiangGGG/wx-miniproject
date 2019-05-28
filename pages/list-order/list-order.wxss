@@ -1,0 +1,19 @@
+/* pages/list-order/list-order.wxss */
+page{height: 100%;background: #f8f6f6}
+.empty{height: 8px;background: #f8f6f6}
+.line{height: 1px;background: #f8f6f6}
+.order_all{padding: 10px 10px 5px 5px;font-size: 12px;margin-bottom: 5px;background: white}
+.order_all .order_num{font-size: 10px;color: grey;border-bottom: 1px solid #f8f6f6;line-height: 20px}
+.order_all .order_stu{color: red;text-align: right;font-size: 11px;border-bottom: 1px solid #f8f6f6;line-height: 20px}
+.order_all .order_date{font-size: 10px;color: grey;line-height: 24px}
+.order_all .goodsDetail{display: flex;flex-direction: row;padding: 5px 5px 0px 0px}
+.order_all .goodsDetail .goods_img {padding: 5px;}
+.order_all .goodsDetail .goods_img image{width: 55px;height: 55px}
+.order_all .goodsDetail .goods_text{font-size: 11px;padding-left:15px;padding-top: 8px}
+.order_all .goodsDetail .goods_text .goods_sku{color: grey;font-size: 10px}
+.order_all .goodsDetail .all_price{color: red;padding-top: 15px;flex: 1;text-align: right;padding-right: 15px}
+.goods_price{color: red;font-size: 10px;line-height: 30px;text-indent: 5px;font-weight: bold}
+.cancel_order{text-align: right;height: 30px;line-height:30px}
+.cancel_order .cancel{margin-right:10px}
+.empty_cart{line-height: 60px;text-align: center;color: grey;font-size: 12px}
+.empty_cart{font-size:11px;margin-top: 20px;text-align:center;color:grey}

@@ -1,0 +1,2 @@
+/* pages/signed/signed.wxss */
+@import '../../component/calendar/index.wxss'

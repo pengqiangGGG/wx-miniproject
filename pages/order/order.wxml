@@ -1,0 +1,62 @@
+<!--pages/order/order.wxml-->
+<view class='orderWrap'>
+    <view class='newAddress' wx:if="{{showAdd}}" catchtap='goAddress'>
+        <van-cell title="新增收货地址" is-link border="{{fasle}}" icon="location-o"/>
+    </view>
+    <view class='newAddress' wx:else catchtap='chooseAddress'>
+        <van-row>
+            <van-col span="2">
+              <view class="left_icon">
+                  <van-icon name="success"></van-icon>
+              </view>             
+            </van-col>
+            <van-col span="20"> 
+                <view class='name'>
+                    {{address.linkMan+' , '+address.mobile}}
+                </view>
+                <view class='detail'>
+                    {{address.provinceStr+' '+address.cityStr+' '+address.areaStr+' '+address.address}}
+                </view>
+            </van-col>
+            <van-col span="2">
+                <view class="right_icon">
+                    <van-icon name="arrow"></van-icon>
+                </view>  
+            </van-col>
+        </van-row>
+    </view>
+    <view class='order_list'> 
+        <view class='order_title'>
+            商品列表
+        </view>
+        <view class='order_goods' wx:for="{{list}}" wx:key="{{index}}">
+            <view class='pic'>
+                <image src="{{item.img}}" mode='widthFix'></image>
+            </view>
+            <view class='dec'>
+                <view class='dec_title'>{{item.title}}</view>
+                <view class='dec_detail'>{{item.sku[0].name+':'+item.sku[0].value+','+item.sku[1].name+':'+item.sku[1].value}}</view>
+                <view class='price'>{{"￥"+item.price}}</view>
+            </view>
+            <view class='num'>
+                {{"x"+item.number}}
+            </view>
+        </view>
+    </view>
+    <view class='other'>
+        <van-cell title="配送方式" value="包邮" />
+        <van-cell title="选择优惠券" is-link url="/pages/choose-coupon/choose-coupon?allPrice={{allPrice}}" link-type="navigateTo" value="{{couponPrice == 0?'不使用优惠券':'-'+couponPrice}}" value-class="valueColor"/>  
+        <van-field value="{{ message }}" label="留言:" type="textarea" autosize border="{{ true }}" bind:change="getMssage"/>
+    </view>
+    <view class='order_bottom'>
+        <van-row>
+            <van-col span="16">
+                <view class='price'>合计：￥{{allPrice-couponPrice}}</view>
+            </van-col>
+            <van-col span="8">
+                <view class='order' catchtap='submit'>提交订单</view>
+            </van-col>
+        </van-row>
+    </view>
+    <van-toast id="van-toast" />
+</view>

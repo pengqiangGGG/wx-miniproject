@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-cell": "../../lib/cell/index",
+    "van-cell-group": "../../lib/cell-group/index",
+    "van-picker": "../../lib/picker/index",
+    "van-popup": "../../lib/popup/index",
+    "van-field": "../../lib/field/index"
+  },
+  "navigationBarTitleText": "意见反馈"
+}

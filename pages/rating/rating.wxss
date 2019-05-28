@@ -1,0 +1,26 @@
+page{height: 100%;background: #f8f6f6}
+.order_all{font-size: 12px;}
+.order_all .goodsDetail{display: flex;padding: 5px 5px 5px 5px;color: grey;border-bottom:1px solid #f8f6f6;background: white;margin-top: 5px}
+.order_all .goodsDetail .goods_img {padding: 5px;border: 1px solid #f8f6f6;}
+.order_all .goodsDetail .goods_img image{width: 30px;height: 30px}
+.order_all .goodsDetail .goodRate{height:40px;line-height:54px;flex: 1;text-align: center}
+.rate_icon{position: relative;top: 7px}
+.rateText{font-size: 11px;text-decoration: underline}
+.red{color:red}
+.section{width: 100%;background: white;position: relative;padding-top: 5px}
+.section .areaText{width: 95%;font-size: 11px;line-height: 18px;margin: 0 auto;height: 120px}
+.section .count{position: absolute;right: 5px;bottom: 5px;color: grey;font-size: 11px}
+.shopRate{background: white;margin-top: 10px;font-size: 12px;padding-bottom: 15px}
+.shopRate .shopScore{height: 30px;position: relative}
+.shopRate .shopIcon{position: absolute;top: 7px;left: 5px}
+.shopRate .shopTitle{margin-left: 25px;display: inline-block;line-height: 30px}
+.dec{line-height: 30px;display: inline-block;color: grey;text-indent: 2px;margin-left: 25px}
+.rate_dec{position: absolute;top:7px;left: 85px}
+.submit{width: 85%;height: 30px;border-radius: 6px;background:red;color: white;font-size: 12px;text-align: center;line-height: 30px;margin:50px auto;}
+radio-group{line-height: 45px;display: flex;width: 100%}
+.radio{position: relative;flex: 1;text-align: center;line-height:45px;text-decoration: underline;font-size: 11px;font-weight: bold}
+.radio radio{opacity: 0;position: absolute;}
+.radio-icon{display: inline-block;position: relative;width: 32px}
+.radio-icon .flower{position: absolute;top: -20px;left: 1px}
+.radio.active{color: red}
+.radio.active .radio-icon{color:red;}

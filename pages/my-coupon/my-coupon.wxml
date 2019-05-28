@@ -1,0 +1,81 @@
+<!--pages/my-coupon/my-coupon.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<view class='myCoupon'>
+    <van-tabs active="{{ active }}">
+        <van-tab title="可使用">
+            <view>
+                <view class='couponItem' wx:for="{{canUse}}" wx:key="{{item.id}}">
+                    <view class='text'>
+                        <view class='left_text'>
+                            <view class='price'>￥<text class='big_text'>{{item.money}}</text></view>
+                            <view class='allPlace'>{{item.type}}</view>
+                        </view>
+                        <view class='top_round'></view>
+                        <view class='bottom_round'></view>
+                        <view class='right_text'>
+                            <view class='full'>{{item.name}}</view>
+                            <view class='limit'>限量抢购</view>
+                        </view>
+                        <view class='useDate'>
+                            {{tools.sub(item.dateStart)+'-'+tools.sub(item.dateEnd)}}
+                        </view>             
+                    </view>
+                    <view class='btn' catchtap=''>去使用</view>
+                </view>
+                <view class="noCoupon">
+                    没有更多了~
+                </view>
+            </view>          
+        </van-tab>
+        <van-tab title="已过期">
+            <view>
+                <view class='couponItem' wx:for="{{noUse}}" wx:key="{{item.id}}">
+                    <view class='text'>
+                        <view class='left_text'>
+                            <view class='price'>￥<text class='big_text'>{{item.money}}</text></view>
+                            <view class='allPlace'>{{item.type}}</view>
+                        </view>
+                        <view class='top_round'></view>
+                        <view class='bottom_round'></view>
+                        <view class='right_text'>
+                            <view class='full'>{{item.name}}</view>
+                            <view class='limit'>限量抢购</view>
+                        </view>
+                        <view class='useDate'>
+                            {{tools.sub(item.dateStart)+'-'+tools.sub(item.dateEnd)}}
+                        </view>             
+                    </view>
+                    <view class='btn' catchtap=''>去使用</view>
+                </view>
+                <view class="noCoupon">
+                    没有更多了~
+                </view>
+            </view> 
+        </van-tab>
+        <van-tab title="已使用">
+            <view class='isUse'>
+                <view class='couponItem' wx:for="{{hasUse}}" wx:key="{{item.id}}">
+                    <view class='text'>
+                        <view class='left_text'>
+                            <view class='price'>￥<text class='big_text'>{{item.money}}</text></view>
+                            <view class='allPlace'>{{item.type}}</view>
+                        </view>
+                        <view class='top_round'></view>
+                        <view class='bottom_round'></view>
+                        <view class='right_text'>
+                            <view class='full'>{{item.name}}</view>
+                            <view class='limit'>全场不限商品使用</view>
+                        </view>
+                        <view class='useDate'>
+                            {{tools.sub(item.dateStart)+'-'+tools.sub(item.dateEnd)}}
+                        </view>             
+                    </view>
+                    <view class='btn' catchtap=''>已使用</view>
+                </view>
+                <view class="noCoupon">
+                    没有更多了~
+                </view>
+            </view> 
+        </van-tab>
+    </van-tabs>
+</view>

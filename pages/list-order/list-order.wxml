@@ -1,0 +1,221 @@
+<!--pages/list-order/list-order.wxml-->
+<view class='list_order_wrap'>
+      <van-tabs active="{{ active }}" swipe-threshold="5"	line-width="65" animated="{{true}}" swipeable="{{true}}" sticky>
+          <van-tab title="待付款">
+              <view class='empty'></view>
+              <view>
+                    <view wx:for="{{orderList}}" wx:key="{{item.id}}" class='order_all' wx:if="{{item.status == 0}}">
+                        <!-- 待支付 -->
+                          <van-row>
+                            <van-col span="18"><view class="order_num">{{"订单编号："+item.orderNumber}}</view></van-col>
+                            <van-col span="6"><view class="order_stu">{{item.statusStr}}</view></van-col>
+                            <van-col span="24" wx:for="{{goodsList[item.id]}}" wx:for-item="goods" wx:key="{{goods.id}}">
+                                <view class='goodsDetail'>
+                                    <view class='goods_img'>
+                                        <image src="{{goods.pic}}"></image>
+                                    </view>
+                                    <view class='goods_text'>
+                                        <view>{{goods.goodsName}}</view>
+                                        <view class='goods_sku'>{{goods.property}}</view>
+                                    </view>
+                                    <view class='all_price'>
+                                        {{"x"+goods.number}}
+                                    </view>
+                                </view>
+                            </van-col>
+                          </van-row>
+                          <van-row>
+                              <van-col span="12">
+                                  <view class='goods_price'>合计：{{"￥"+item.amountReal}}</view>
+                              </van-col>
+                              <van-col span="12">
+                                  <view class='cancel_order'>                                   
+                                      <van-button size="mini" plain hairline type="danger" class="cancel" bind:click="cancel" data-id="{{item.id}}">取消订单</van-button>
+                                      <van-button size="mini" plain hairline type="primary" bind:click='payMoney' data-price="{{item.amountReal}}">立即付款</van-button>
+                                  </view>
+                              </van-col>
+                          </van-row>                            
+                    </view>
+                    <view>
+                        <view class='empty_cart'>
+                            没有更多啦~
+                        </view>
+                    </view>    
+              </view>                             
+          </van-tab>
+          <van-tab title="待发货">
+              <view class='empty'></view>
+              <view>
+                  <view wx:for="{{orderList}}" wx:key="{{item.id}}" class='order_all' wx:if="{{item.status == 1}}">
+                            <!-- 待发货 -->             
+                        <van-row>
+                          <van-col span="18"><view class="order_num">{{"订单编号："+item.orderNumber}}</view></van-col>
+                          <van-col span="6"><view class="order_stu">{{item.statusStr}}</view></van-col>
+                          <van-col span="24" wx:for="{{goodsList[item.id]}}" wx:for-item="goods" wx:key="{{goods.id}}">
+                              <view class='goodsDetail'>
+                                  <view class='goods_img'>
+                                      <image src="{{goods.pic}}"></image>
+                                  </view>
+                                  <view class='goods_text'>
+                                      <view>{{goods.goodsName}}</view>
+                                      <view class='goods_sku'>{{goods.property}}</view>
+                                  </view>
+                                  <view class='all_price'>
+                                      {{"x"+goods.number}}
+                                  </view>
+                              </view>
+                          </van-col>
+                        </van-row>
+                        <van-row>
+                            <van-col span="12">
+                                <view class='goods_price'>合计：{{"￥"+item.amountReal}}</view>
+                            </van-col>
+                              <van-col span="12">
+                                <view class='cancel_order'>                                   
+                                    <van-button size="mini" plain hairline type="primary" catchtap='goDetail'  data-id="{{item.id}}">订单详情</van-button>
+                                </view>
+                            </van-col>
+                        </van-row>                    
+                    </view>
+                    <view>
+                        <view class='empty_cart'>
+                            没有更多啦~
+                        </view>
+                    </view> 
+              </view>
+            </van-tab>
+            <van-tab title="待收货">
+                <view class='empty'></view>
+                <view>
+                    <view wx:for="{{orderList}}" wx:key="{{item.id}}" class='order_all' wx:if="{{item.status == 2}}">
+                        <!-- 已发货 -->
+                    
+                            <van-row>
+                              <van-col span="18"><view class="order_num">{{"订单编号："+item.orderNumber}}</view></van-col>
+                              <van-col span="6"><view class="order_stu">{{item.statusStr}}</view></van-col>
+                              <van-col span="24" wx:for="{{goodsList[item.id]}}" wx:for-item="goods" wx:key="{{goods.id}}">
+                                  <view class='goodsDetail'>
+                                      <view class='goods_img'>
+                                          <image src="{{goods.pic}}"></image>
+                                      </view>
+                                      <view class='goods_text'>
+                                          <view>{{goods.goodsName}}</view>
+                                          <view class='goods_sku'>{{goods.property}}</view>
+                                      </view>
+                                      <view class='all_price'>
+                                          {{"x"+goods.number}}
+                                      </view>
+                                  </view>
+                              </van-col>
+                            </van-row>
+                            <van-row>
+                                <van-col span="12">
+                                    <view class='goods_price'>合计：{{"￥"+item.amountReal}}</view>
+                                </van-col>
+                                  <van-col span="12">
+                                    <view class='cancel_order'>                                   
+                                        <van-button size="mini" plain hairline type="primary" catchtap='goDetail'  data-id="{{item.id}}">订单详情</van-button>
+                                    </view>
+                                </van-col>
+                            </van-row>              
+                      
+                    </view>
+                    <view>
+                            <view class='empty_cart'>
+                                没有更多啦~
+                            </view>
+                    </view> 
+              </view>
+          </van-tab>
+          <van-tab title="待评价">
+              <view class='empty'></view>
+              <view>
+                  <view wx:for="{{orderList}}" wx:key="{{item.id}}" class='order_all' wx:if="{{item.status == 3}}">
+                      <!-- 待评价 -->
+                      
+                          <van-row>
+                            <van-col span="18"><view class="order_num">{{"订单编号："+item.orderNumber}}</view></van-col>
+                            <van-col span="6"><view class="order_stu">{{item.statusStr}}</view></van-col>
+                            <van-col span="24" wx:for="{{goodsList[item.id]}}" wx:for-item="goods" wx:key="{{goods.id}}">
+                                <view class='goodsDetail'>
+                                    <view class='goods_img'>
+                                        <image src="{{goods.pic}}"></image>
+                                    </view>
+                                    <view class='goods_text'>
+                                        <view>{{goods.goodsName}}</view>
+                                        <view class='goods_sku'>{{goods.property}}</view>
+                                    </view>
+                                    <view class='all_price'>
+                                        {{"x"+goods.number}}
+                                    </view>
+                                </view>
+                            </van-col>
+                          </van-row>
+                          <van-row>
+                              <van-col span="12">
+                                  <view class='goods_price'>合计：{{"￥"+item.amountReal}}</view>
+                              </van-col>
+                                <van-col span="12">
+                                  <view class='cancel_order'>                                   
+                                      <van-button size="mini" plain hairline type="primary" class="cancel" catchtap='goDetail' data-id="{{item.id}}">订单详情</van-button>
+                                      <van-button size="mini" plain hairline type="primary" catchtap='goRating' data-id="{{item.id}}">立即评价</van-button>
+                                  </view>
+                              </van-col>
+                          </van-row>               
+                      
+                  </view>
+                  <view>
+                        <view class='empty_cart'>
+                            没有更多啦~
+                        </view>
+                  </view> 
+              </view>
+          </van-tab>
+          <van-tab title="已完成">
+              <view class='empty'></view>
+              <view>
+                  <view wx:for="{{orderList}}" wx:key="{{item.id}}" class='order_all' wx:if="{{item.status == 4 || item.status == -1}}">
+                  
+                   <!-- 已完成 -->
+                  
+                      <van-row>
+                        <van-col span="18"><view class="order_num">{{"订单编号："+item.orderNumber}}</view></van-col>
+                        <van-col span="6"><view class="order_stu">{{item.statusStr}}</view></van-col>
+                        <van-col span="24" wx:for="{{goodsList[item.id]}}" wx:for-item="goods" wx:key="{{goods.id}}">
+                            <view class='goodsDetail'>
+                                <view class='goods_img'>
+                                    <image src="{{goods.pic}}"></image>
+                                </view>
+                                <view class='goods_text'>
+                                    <view>{{goods.goodsName}}</view>
+                                    <view class='goods_sku'>{{goods.property}}</view>
+                                </view>
+                                <view class='all_price'>
+                                    {{"x"+goods.number}}
+                                </view>
+                            </view>
+                        </van-col>
+                      </van-row>
+                      <van-row>
+                          <van-col span="12">
+                              <view class='goods_price'>合计：{{"￥"+item.amountReal}}</view>
+                          </van-col>
+                            <van-col span="12">
+                              <view class='cancel_order'>                                   
+                                  <van-button size="mini" plain hairline type="primary" catchtap='goDetail'  data-id="{{item.id}}">订单详情</van-button>
+                              </view>
+                          </van-col>
+                      </van-row>              
+                  </view>
+                  
+                  <view>
+                        <view class='empty_cart'>
+                            没有更多啦~
+                        </view>
+                  </view> 
+              </view>
+
+          </van-tab>
+      </van-tabs>
+      <van-toast id="van-toast" />
+</view>

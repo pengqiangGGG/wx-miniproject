@@ -1,0 +1,35 @@
+<!--pages/detail-order/detail-order.wxml-->
+<view class='orderDetailWrap'>
+    <view class='order_all'>
+        <van-row>
+            <van-col span="24"><view class="order_num">商品信息：</view></van-col>
+            <van-col span="24" wx:for="{{goods}}" wx:for-item="goods" wx:key="{{goods.id}}">
+                <view class='goodsDetail'>
+                    <view class='goods_img'>
+                        <image src="{{goods.pic}}"></image>
+                    </view>
+                    <view class='goods_text'>
+                        <view>{{goods.goodsName}}</view>
+                        <view class='goods_sku'>{{goods.property}}</view>
+                    </view>
+                    <view class='all_price'>
+                        <view>
+                            {{'￥'+ goods.amount}}
+                        </view>
+                        <view>
+                          {{"x"+goods.number}}
+                        </view>
+                    </view>
+                </view>
+            </van-col>
+        </van-row>
+    </view>
+    <view class='empty'></view>
+    <van-cell title="订单编号" value="{{orderInfo.orderNumber}}"/>
+    <van-cell title="订单状态" value="{{orderInfo.statusStr}}"/>
+    <van-cell title="下单时间" value="{{orderInfo.dateAdd}}"/>
+    <van-cell title="优惠折扣" label="{{orderInfo.remark}}"/>
+    <van-cell title="商品金额" value="{{'￥'+ orderInfo.amount}}"/>
+    <van-cell title="应付金额" value="{{'￥'+ orderInfo.amountReal}}"/>
+    <van-toast id="van-toast" />
+</view>

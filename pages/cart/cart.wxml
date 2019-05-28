@@ -1,0 +1,85 @@
+<!--pages/cart/cart.wxml-->
+<view class='cartWrap'>
+    <view class='no_cart' wx:if='{{list.length<=0}}'>
+        <van-icon name="shopping-cart-o"/>
+        <view class='empty_cart no_cart' wx:if="{{isLogin}}">
+            购物车空空如也~
+        </view>
+        <view class='shopping' wx:if="{{isLogin}}" catchtap='goSee'>
+            去逛逛
+        </view>
+        <view class='empty_cart no_cart' wx:if="{{!isLogin}}">
+            您还没有登录
+        </view>
+        <view class='shopping' wx:if="{{!isLogin}}" catchtap='go_login'>
+            去登录
+        </view>
+    </view>
+    <view wx:else="{{list.length>0}}" class="hasCart">
+        <view>
+            <van-row class="cart_top">
+                <van-col span="8">30天无忧退货</van-col>
+                <van-col span="8">48小时快速退款</van-col>
+                <van-col span="8">88元免费包邮</van-col>
+            </van-row> 
+        </view>
+        <view wx:for="{{list}}" wx:key="{{item.id}}" class='isGoods'>
+           <!-- <van-card num="{{item.num}}" price="{{item.price}}" 
+            desc="{{item.sku[0].name+':'+item.sku[0].value+','+item.sku[1].name+':'+item.sku[1].value}}" 
+            title="{{item.title}}" 
+            thumb="{{ item.img }}" 
+            origin-price="{{item.oldprice}}"/>  -->
+            <view class='choose_check'>
+                <van-checkbox value="{{ item.isChoosed }}" bind:change="isChecked" checked-color="#07c160" data-index='{{index}}'></van-checkbox>
+            </view>
+            <view class='cart_pic'>
+                <image src="{{item.img}}" mode='widthFix'></image>
+            </view>
+            <view class='cart_dec'>
+                <view class='title'>{{item.title}}</view>
+                <view class='sku'>{{item.sku[0].name+':'+item.sku[0].value+','+item.sku[1].name+':'+item.sku[1].value}}</view>
+                <view class='price'><text class='new'>{{'￥'+item.price}}</text><text class='old'>{{'￥'+item.oldprice}}</text></view>
+            </view>
+            <view class='num'>
+                <view class='btn'>
+                    <van-stepper value="{{ item.number }}" bind:change="onChange" data-index='{{index}}'/>
+                </view>
+            </view>  
+        </view>
+        <view class='no_more'>没有更多了~</view>
+        <view class='cart_bottom' wx:if="{{isEdit}}">
+            <van-row>
+              <van-col span="7">
+                  <view class='cart_isAll'>
+                      <van-checkbox value="{{ isAll }}" bind:change="chooseAll" checked-color="#07c160">全选({{allNum}})</van-checkbox>
+                  </view>
+              </van-col>             
+              <van-col span="7">总价：{{'￥'+allPrice}}</van-col>
+              <van-col span="4">
+                    <view class="cart_edit" catchtap='cartEdit'>编辑</view>
+              </van-col>
+              <van-col span="6">
+                    <view class='order' catchtap='go_order'>去结算</view>
+              </van-col>
+            </van-row>
+        </view>
+        <view class='cart_bottom' wx:else>
+            <van-row>
+              <van-col span="14">
+                  <view class='cart_isAll'>
+                      <van-checkbox value="{{ isAll }}" bind:change="chooseAll" checked-color="#07c160">全选({{allNum}})</van-checkbox>
+                  </view>
+              </van-col>             
+              
+              <van-col span="4">
+                    <view class="cart_edit" catchtap='hasEdit'>完成</view>
+              </van-col>
+              <van-col span="6">
+                    <view class='{{isNotAll?"order":"del"}}' catchtap='delCart'>删除</view>
+              </van-col>
+            </van-row>
+        </view>
+    </view>
+    <van-toast id="van-toast"/>
+</view>
+

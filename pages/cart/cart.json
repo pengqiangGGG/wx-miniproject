@@ -1,0 +1,6 @@
+{
+  "usingComponents": {"van-card": "../../lib/card/index",
+  "van-checkbox": "../../lib/checkbox/index",
+  "van-checkbox-group": "../../lib/checkbox-group/index"},
+  "navigationBarTitleText": "购物车"
+}

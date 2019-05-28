@@ -1,0 +1,6 @@
+{
+  "usingComponents": {"van-panel": "../../lib/panel/index",
+  "van-cell": "../../lib/cell/index",
+  "van-cell-group": "../../lib/cell-group/index"},
+  "navigationBarTitleText":"选择地址"
+}

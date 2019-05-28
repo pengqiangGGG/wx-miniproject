@@ -1,0 +1,32 @@
+<!--pages/choose-coupon/choose-coupon.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<view class='chooseCoupon'>
+    <view>
+        <view class='noChoose' catchtap='noChoose'>不使用优惠券</view>
+    </view>
+    <view class='couponList'>
+        <view class='couponItem' wx:for="{{list}}" wx:key="{{item.id}}" wx:if="{{item.status == 0 && item.moneyHreshold<allPrice}}">
+            <view class='text'>
+                <view class='left_text'>
+                    <view class='price'>￥<text class='big_text'>{{item.money}}</text></view>
+                    <view class='allPlace'>{{item.type}}</view>
+                </view>
+                <view class='top_round'></view>
+                <view class='bottom_round'></view>
+                <view class='right_text'>
+                    <view class='full'>{{item.name}}</view>
+                </view>
+                <view class='useDate'>
+                    {{tools.sub(item.dateStart)+'-'+tools.sub(item.dateEnd)}}
+                </view>
+                <view class='choosed' wx:if="{{item.id == couponId}}">
+                    <van-icon name="success" size="16px" color='white'></van-icon>
+                </view>            
+            </view>
+            <view class='btn' catchtap='chooseUse' data-couponprice='{{item.money}}' data-couponid='{{item.id}}'>去使用</view>
+        </view>
+        <view class="noCoupon">
+            没有更多了~
+        </view>
+    </view>
+</view>

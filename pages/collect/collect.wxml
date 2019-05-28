@@ -1,0 +1,15 @@
+<!--pages/collect/collect.wxml-->
+<view>
+    <view class='empty'></view>
+    <van-swipe-cell right-width="{{ 60 }}" wx:for="{{list}}" wx:key="{{item.id}}" bind:click="onClose" data-id='{{item.goodsId}}'>
+        <view class='goods'>
+            <image src="{{item.pic}}"></image>
+            <text class='goods_text'>{{item.goodsName}}</text>
+        </view>
+        <view slot="right">删除</view>
+    </van-swipe-cell>
+    <view class='noList' wx:if="{{list.length<1}}">
+        收藏列表为空~
+    </view>
+    <van-notify id="van-notify" />
+</view>

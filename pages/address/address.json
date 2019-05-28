@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-field": "../../lib/field/index",
+    "van-area": "../../lib/area/index",
+    "van-popup": "../../lib/popup/index",
+    "van-switch-cell": "../../lib/switch-cell/index"
+  },
+  "navigationBarTitleText": "编辑收货地址"
+}

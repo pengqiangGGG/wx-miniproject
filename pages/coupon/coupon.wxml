@@ -1,0 +1,36 @@
+<!--pages/coupon/coupon.wxml-->
+<view class='couponWrap'>
+    <view class='convert'>
+        <van-cell-group>
+            <van-field value="{{ code }}" center clearable label="" placeholder="请输入兑换码" border="{{ false }}" use-button-slot bind:change="changeCode">
+                <van-button slot="button" size="small" type="warning" bind:click="convert">兑换优惠券</van-button>
+            </van-field>
+        </van-cell-group>
+    </view>
+    <view class='redBag'>
+        - 限量抢红包 -
+    </view>
+    <view class='couponList'>
+        <view class='couponItem' wx:for="{{list}}" wx:key="{{item.id}}">
+            <view class='text'>
+                <view class='left_text'>
+                    <view class='price'>￥<text class='big_text'>{{item.moneyMin}}</text></view>
+                    <view class='allPlace'>{{item.type}}</view>
+                </view>
+                <view class='top_round'></view>
+                <view class='bottom_round'></view>
+                <view class='right_text'>
+                    <view class='full'>{{item.name}}</view>
+                    <view class='limit'>限量抢购</view>
+                </view>               
+            </view>
+            <view class='btn' wx:if="{{item.pwd == 'Y'}}">兑换码兑换</view>
+            <view class='btn' wx:else catchtap='getCoupon' data-id='{{item.id}}'>立即领取</view>
+        </view>
+        <view wx:if="{{list.length<=0}}" class="noCoupon">
+            暂无可用优惠券~
+        </view>
+    </view>
+
+    <van-toast id="van-toast"></van-toast>
+</view>

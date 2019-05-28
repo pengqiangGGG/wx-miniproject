@@ -1,0 +1,24 @@
+<!--pages/address/address.wxml-->
+<view class='addressWrap'>
+    <view class='add_address'>
+        <van-cell-group>
+            <van-field value="{{ user }}" label="姓名" placeholder="请输入姓名" bind:change="getUser"/>
+            <van-field value="{{ phone }}" label="手机号" placeholder="请输入手机号" bind:change="getPhone" type="number"/>
+            <view catchtap='chooseAddress'>
+              <van-field value="{{ address }}" label="选择地区" disabled/>
+            </view>
+            <van-field value="{{ detail }}" label="详细地址" type="textarea" autosize bind:change="getDetail"/>
+            <van-field value="{{ email }}" label="邮政编码" bind:change="getEmail" type="number"/>
+            <van-switch-cell title="是否设置为默认地址" checked="{{ isDefault }}" bind:change="changeDefault" size="18px" active-color="green"/>
+        </van-cell-group>
+        <view class='saveWrap'>
+            <view class='save' catchtap='submit' wx:if="{{!showBtn}}">添加</view>
+            <view class='save' catchtap='update' wx:if="{{showBtn}}">修改</view>
+            <view class='delete' catchtap='delete' wx:if="{{showBtn}}">删除</view>       
+        </view>
+    </view>
+    <van-popup show="{{ show }}" position="bottom" overlay="{{ true }}" bind:click-overlay="close" overlay-style="dailog">
+        <van-area area-list="{{ list }}" bind:cancel="close"  bind:confirm="save"/>
+    </van-popup>  
+    <van-toast id="van-toast" />
+</view>

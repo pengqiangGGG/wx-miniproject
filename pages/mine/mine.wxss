@@ -1,0 +1,17 @@
+/* pages/mine/mine.wxss */
+.headwrap{padding: 30px;background:linear-gradient(to right,rgb(245, 189, 68),rgb(243, 195, 195))}
+.avatar{width: 60px;height: 60px;border-radius: 50%;vertical-align: middle}
+.name{font-size: 13px;margin-left: 20px;color: white}
+.empty{height: 10px;background: #f8f6f6}
+.order .order_img{text-align: center;padding-top: 10px}
+.order .order_img image{width: 22px;height: 22px;}
+.order .order_text{font-size:11px;text-align: center;padding-bottom: 10px}
+.service .order_img{text-align: center;padding-top: 10px}
+.service .order_img image{width: 26px;height: 26px;}
+.service .order_text{font-size:11px;text-align: center;padding-bottom: 10px}
+.setting .order_img{text-align: center;padding-top: 10px}
+.setting .order_img image{width: 26px;height: 26px;}
+.setting .order_text{font-size:11px;text-align: center;padding-bottom: 10px}
+.service .tel{line-height: 40px;border-bottom:1px solid #f8f6f6;text-align: center;font-size: 11px;color:grey}
+.service .call{line-height: 40px;border-bottom:5px solid #f8f6f6;text-align: center;font-size: 12px;}
+.service .cancel{line-height: 40px;text-align: center;font-size: 12px;}

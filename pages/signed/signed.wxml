@@ -1,0 +1,5 @@
+<!--pages/signed/signed.wxml--> 
+<import src="../../component/calendar/index.wxml"/>
+<view class="calendar-wrap">
+   <template is="calendar" data="{{...calendar}}" />
+</view>

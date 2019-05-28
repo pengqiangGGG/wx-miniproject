@@ -1,0 +1,32 @@
+<!--pages/catelog/catelog.wxml-->
+<view class='cate_wrap'>
+    <van-tabs active="{{ activeId }}" sticky line-width='54' bind:click="changeTab">
+        <van-tab title="{{item.name}}" wx:for="{{topNavList}}" wx:key="{{item.key}}">
+            <view class='goods_show' wx:if="{{showList.length>0}}">
+                <view class='cate_name'>
+                    —————— {{item.name}} ——————
+                </view>
+                <van-row>
+                    <van-col span='12' wx:for="{{showList}}" wx:key="item.id" catchtap="goGoodsInfo" data-postid="{{item.id}}">
+                        <view class='cate_goods'>
+                            <view class='cate_img'>
+                              <image src="{{item.pic}}" mode='widthFix'></image>                              
+                            </view>                            
+                            <view class='cate_title'>
+                                {{item.name}}
+                            </view>
+                            <view class='cate_price'>
+                                <view class='cate_new'>￥{{item.minPrice}}</view>
+                                <view class='cate_old'>￥{{item.originalPrice}}</view>
+                            </view>
+                        </view>
+                    </van-col>
+                </van-row>
+            </view>
+            <view wx:else>
+                <view class='noGood'>暂无商品~</view>
+            </view>
+        </van-tab>        
+    </van-tabs>
+    
+</view>

@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<view class="container">      
+      <view class='search_wrap' catchtap='goSearch'>
+              <van-search
+                value="{{ value }}"
+                placeholder="请输入搜索关键词"
+                show-action
+                disabled
+                bind:search="onSearch"
+                bind:cancel="onCancel"/>
+      </view>
+      <view class='swiper_wrap'>
+        <swiper
+          indicator-dots="{{indicatorDots}}"
+          autoplay="{{autoplay}}"
+          interval="{{interval}}"
+          duration="{{duration}}"
+          circular="{{circular}}"
+        >
+          <block wx:for="{{banners}}" wx:key="item.id">
+            <swiper-item>
+              <image src="{{item.picUrl}}" class="slide-image" mode='widthFix'/>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class='nav_wrap'>
+        <van-row>
+          <van-col span="6">
+            <van-icon name="new-o"  class='nav_icon'/>
+            <view class='nav_text'>新品</view>
+          </van-col>
+          <van-col span="6">
+            <van-icon name="hot-o"  class='nav_icon'/>
+            <view class='nav_text'>热销</view>
+          </van-col>
+          <van-col span="6">
+            <van-icon name="todo-list-o"  class='nav_icon'/>
+            <view class='nav_text'>推荐</view>
+          </van-col>
+          <van-col span="6" catchtap='goCoupon'>
+            <van-icon name="coupon-o"  class='nav_icon'/>
+            <view class='nav_text'>优惠券</view>
+          </van-col>
+        </van-row>
+      </view>
+      <view class='commit_wrap'>
+        <view class='hot_goods'>
+          ——————— 爆品推荐 ———————
+        </view>
+        <view class='goodList_wrap'>
+          <van-row>
+          
+              <van-col span='12' wx:for="{{goodList}}" wx:key="item.id" catchtap="goDetail" data-postid="{{item.id}}">
+                <view class='good_list'>
+                  <view class='good_all'>
+                    <image src='{{item.pic}}' class='good_img' mode='widthFix'></image>
+                    <view class='good_text'>
+                      <text>{{item.name}}</text>
+                      <view class='price_wrap'>
+                        <text class='new_price'>￥{{item.minPrice}}</text>
+                        <text class='old_price'>￥{{item.originalPrice}}</text>
+                      </view>
+                    </view>
+                  </view>  
+                </view>                
+              </van-col>
+       
+          </van-row> 
+        </view>
+      </view>
+</view>
+
